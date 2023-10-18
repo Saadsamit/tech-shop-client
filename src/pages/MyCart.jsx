@@ -1,8 +1,10 @@
+import Banner2 from "../components/Banner2";
 
 const MyCart = () => {
+    
     return (
         <div>
-            <h1>my cart</h1>
+            <Banner2 text={'My Cart'} />
         </div>
     );
 };

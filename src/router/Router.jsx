@@ -4,17 +4,20 @@ import Home from "../pages/Home";
 import AddProduct from "../pages/AddProduct";
 import MyCart from "../pages/MyCart";
 import Login from "../pages/Login";
+import Registration from "../pages/Registration";
+import ErrorPage from "../pages/ErrorPage";
 const url = "http://localhost:8000/";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: ()=> fetch(`${url}brands`)
+        loader: () => fetch(`${url}brands`),
       },
       {
         path: "/AddProduct",
@@ -27,6 +30,10 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
       },
     ],
   },

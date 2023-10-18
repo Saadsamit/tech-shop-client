@@ -3,6 +3,7 @@ import Brands from "../components/Brands";
 import ContactUs from "../components/ContactUs";
 import Banner from "./../components/Banner";
 const Home = () => {
+  
   return (
     <div>
       <Banner />

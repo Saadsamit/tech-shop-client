@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 const MyContext = createContext(null);
 const AuthContext = ({ children }) => {
-  const MyObj = {};
+  const [navbarLogin, setNavbarLogin] = useState(true)
+  const MyObj = {navbarLogin,
+    setNavbarLogin
+  };
   return <MyContext.Provider value={MyObj}>{children}</MyContext.Provider>;
 };
 AuthContext.propTypes = {

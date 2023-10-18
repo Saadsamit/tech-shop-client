@@ -1,13 +1,18 @@
-import { url } from './router/Router'
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import { url } from "./router/Router";
+import Footer from "./components/Footer";
 
 function App() {
   console.log(url);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Vite + React</h1>
-    </>
-  )
+    <div className="font-Roboto">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

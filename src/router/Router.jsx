@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import AddProduct from "../pages/AddProduct";
 import MyCart from "../pages/MyCart";
 import Login from "../pages/Login";
-const url = "hi";
+const url = "http://localhost:8000/";
 
 const Router = createBrowserRouter([
   {
@@ -14,6 +14,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: ()=> fetch(`${url}brands`)
       },
       {
         path: "/AddProduct",

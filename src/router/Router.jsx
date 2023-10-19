@@ -30,6 +30,7 @@ const Router = createBrowserRouter([
       {
         path: "/MyCart",
         element: <MyCart />,
+        loader: () => fetch(`${url}cardData`),
       },
       {
         path: "/brandDetail/:id",

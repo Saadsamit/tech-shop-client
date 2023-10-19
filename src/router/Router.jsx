@@ -22,6 +22,7 @@ const Router = createBrowserRouter([
       {
         path: "/AddProduct",
         element: <AddProduct />,
+        loader: () => fetch(`${url}brands`),
       },
       {
         path: "/MyCart",

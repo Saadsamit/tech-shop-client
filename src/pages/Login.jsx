@@ -16,23 +16,27 @@ const Login = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body">
-              <div className="form-control">
-                <label className="label">
+            <div className="form-control">
+                <label className="label" htmlFor="email">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  id="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control">
-                <label className="label">
+              <label className="label" htmlFor="password">
                   <span className="label-text">Password</span>
                 </label>
                 <input
                   type="password"
+                  id="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required

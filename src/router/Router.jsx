@@ -7,6 +7,8 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import ErrorPage from "../pages/ErrorPage";
 import BrandDetail from "./../pages/BrandDetail";
+import CardDetail from "../pages/CardDetail";
+import UpdateProduct from "../pages/UpdateProduct";
 const url = "http://localhost:8000/";
 
 const Router = createBrowserRouter([
@@ -33,6 +35,16 @@ const Router = createBrowserRouter([
         path: "/brandDetail/:id",
         element: <BrandDetail />,
         loader: ({ params }) => fetch(`${url}brands/${params.id}`),
+      },
+      {
+        path: "/cardDetail/:id",
+        element: <CardDetail />,
+        loader: ({ params }) => fetch(`${url}Item/${params.id}`),
+      },
+      {
+        path: "/UpdateProduct/:id",
+        element: <UpdateProduct />,
+        loader: ({ params }) => fetch(`${url}Item/${params.id}`),
       },
       {
         path: "/login",

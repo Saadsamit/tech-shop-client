@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Rating from "react-rating";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const ItemCard = ({ data }) => {
   const { _id, image, name, brand, type, price, rating, description } = data;
-  console.log(_id);
   return (
     <div className="card bg-base-100 border shadow-xl p-4">
       <figure>
@@ -15,10 +15,10 @@ const ItemCard = ({ data }) => {
           <div className="badge badge-outline">{brand}</div>
         </div>
         <h2 className="card-title">{name}</h2>
-        <p>${price}</p>
-        <p>
-          {description.length > 100
-            ? `${description.slice(1, 100)}...`
+        <p className="text-zinc-500 font-semibold text-xl">$ <span className="font-normal">{price}</span></p>
+        <p className="text-zinc-500">
+          {description.length > 70
+            ? `${description.slice(0, 70)}...`
             : description}
         </p>
         <Rating
@@ -27,8 +27,8 @@ const ItemCard = ({ data }) => {
           fullSymbol={<AiFillStar className="text-2xl text-[#687EFF]" />}
           readonly
         />
-        <button className="btn btn-primary">Details button</button>
-        <button className="btn btn-primary">Update button</button>
+        <Link to={`/cardDetail/${_id}`} className="btn btn-primary">Details button</Link>
+        <Link to={`/UpdateProduct/${_id}`} className="btn btn-primary">Update button</Link>
       </div>
     </div>
   );

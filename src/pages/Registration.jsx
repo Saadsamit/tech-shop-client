@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 
-
 const Registration = () => {
-    
-    return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
+  return (
+    <div>
+      <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">registrar now!</h1>
@@ -17,7 +15,7 @@ const Registration = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body">
-            <div className="form-control">
+              <div className="form-control">
                 <label className="label" htmlFor="name">
                   <span className="label-text">User Name</span>
                 </label>
@@ -70,23 +68,25 @@ const Registration = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">registrar</button>
+                <button type="submit" className="btn btn-primary">
+                  registrar
+                </button>
               </div>
               <p className="text-sm capitalize">
-              if you have a account{" "}
-              <Link
-                to="/login"
-                className="text-[#687EFF] link-hover text-base"
-              >
-                login
-              </Link>
-            </p>
+                if you have a account{" "}
+                <Link
+                  to="/login"
+                  className="text-[#687EFF] link-hover text-base"
+                >
+                  login
+                </Link>
+              </p>
             </form>
           </div>
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Registration;

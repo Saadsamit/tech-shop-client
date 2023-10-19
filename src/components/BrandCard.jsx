@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import contactImg from "../assets/contect.jpg";
+import { Link } from "react-router-dom";
 
 const BrandCard = ({ data }) => {
   const { _id, brand_name, brand_img } = data;
-  console.log(_id);
   return (
-    <>
+    <Link to={`/brandDetail/${_id}`}>
       <div
         className="hero h-80 rounded-xl text-white hover:underline cursor-pointer"
         style={{ backgroundImage: `url(${contactImg})` }}
@@ -16,7 +16,7 @@ const BrandCard = ({ data }) => {
           <h4 className="font-semibold text-2xl">{brand_name}</h4>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 

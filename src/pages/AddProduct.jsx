@@ -1,42 +1,52 @@
 import { useLoaderData } from "react-router-dom";
 import Banner2 from "../components/Banner2";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import { url } from "../router/Router";
 const AddProduct = () => {
-  const loaderData = useLoaderData()
-  const data = loaderData && loaderData?.map(data=> <option key={data?._id} className="capitalize" value={data?.brand_name.toLowerCase()}>{data?.brand_name.toLowerCase()}</option>)
-  const productSubmit =(e)=>{
-    e.preventDefault()
-    const form = e.target
-    const image = form.image.value
-    const name = form.name.value.toLowerCase()
-    const brand = form.brand.value.toLowerCase()
-    const type = form.type.value.toLowerCase()
-    const price = form.price.value
-    const rating = form.rating.value
-    const description = form.description.value
-    if(rating <= 0 || rating > 5 ){
-      swal('Enter between 1 - 5', "", "warning");
-      return
+  const loaderData = useLoaderData();
+  const data =
+    loaderData &&
+    loaderData?.map((data) => (
+      <option
+        key={data?._id}
+        className="capitalize"
+        value={data?.brand_name.toLowerCase()}
+      >
+        {data?.brand_name.toLowerCase()}
+      </option>
+    ));
+  const productSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const name = form.name.value.toLowerCase();
+    const brand = form.brand.value.toLowerCase();
+    const type = form.type.value.toLowerCase();
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const description = form.description.value;
+    if (rating <= 0 || rating > 5) {
+      swal("Enter between 1 - 5", "", "warning");
+      return;
     }
-    const formData = {image,name,brand,type,price,rating,description}
-    fetch(`${url}brandItem`,{
+    const formData = { image, name, brand, type, price, rating, description };
+    fetch(`${url}brandItem`, {
       method: "POST",
-      headers:{
-        'content-type': 'application/json',
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formData),
     })
-    .then(res=> res.json())
-    .then(data=> {
-      if(data.acknowledged){
-        swal('Your Product is Successfully Added', "", "success");
-      }else{
-        swal('Your Product is Failed to Add', "", "error");
-      }
-    })
-    form.reset()
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          swal("Your Product is Successfully Added", "", "success");
+        } else {
+          swal("Your Product is Failed to Add", "", "error");
+        }
+      });
+    form.reset();
+  };
   return (
     <div>
       <Banner2 text={"Add Product"} />
@@ -65,19 +75,33 @@ const AddProduct = () => {
             </div>
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
-            <select className="select select-bordered w-full" required name="brand">
+            <select
+              className="select select-bordered w-full"
+              required
+              name="brand"
+            >
               <option disabled selected value="">
-              Product Brand
+                Product Brand
               </option>
               {data}
             </select>
-            <select className="select select-bordered w-full" required name="type">
+            <select
+              className="select select-bordered w-full"
+              required
+              name="type"
+            >
               <option disabled selected value="">
-              Product Type
+                Product Type
               </option>
-              <option className="capitalize" value="phone">phone</option>
-              <option className="capitalize" value="case">case</option>
-              <option className="capitalize" value="headphone">headphone</option>
+              <option className="capitalize" value="phone">
+                phone
+              </option>
+              <option className="capitalize" value="case">
+                case
+              </option>
+              <option className="capitalize" value="headphone">
+                headphone
+              </option>
             </select>
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
@@ -102,9 +126,15 @@ const AddProduct = () => {
               />
             </div>
           </div>
-          <textarea name="description" placeholder="Product Short Description" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
+          <textarea
+            name="description"
+            placeholder="Product Short Description"
+            className="textarea textarea-bordered textarea-lg w-full"
+          ></textarea>
           <div className="text-center">
-          <button className="btn btn-primary" type="submit">Add Product</button>
+            <button className="btn btn-primary" type="submit">
+              Add Product
+            </button>
           </div>
         </form>
       </div>

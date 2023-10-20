@@ -4,7 +4,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 const MycartCard = ({ data, handleDelete }) => {
   const { _id, image, name, brand, type, price, rating, description } = data;
   return (
-    <div className="card sm:card-side bg-base-100 shadow-xl border">
+    <div className="card sm:card-side dark:text-white dark:bg-slate-700 dark:border-none bg-base-100 shadow-xl border">
       <figure>
         <img src={image} alt={name} />
       </figure>
@@ -14,10 +14,10 @@ const MycartCard = ({ data, handleDelete }) => {
           <div className="badge badge-outline">{brand}</div>
         </div>
         <h2 className="card-title">{name}</h2>
-        <p className="text-zinc-500 font-semibold text-xl">
+        <p className="text-zinc-500 font-semibold text-xl dark:text-slate-400">
           $ <span className="font-normal">{price}</span>
         </p>
-        <p className="text-zinc-500">
+        <p className="text-zinc-500 dark:text-slate-400">
           {description.length > 70
             ? `${description.slice(0, 70)}...`
             : description}

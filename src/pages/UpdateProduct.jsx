@@ -90,7 +90,7 @@ const UpdateProduct = () => {
                 name="image"
                 defaultValue={loaderData && loaderData?.image}
                 placeholder="Product Image"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -101,14 +101,14 @@ const UpdateProduct = () => {
                 name="name"
                 defaultValue={loaderData && loaderData?.name}
                 placeholder="Product Name"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
             <select
-              className="select select-bordered w-full"
+              className="select select-bordered w-full dark:text-white dark:bg-slate-700"
               defaultValue={loaderData && loaderData?.brand}
               required
               name="brand"
@@ -136,7 +136,7 @@ const UpdateProduct = () => {
               </option>
             </select>
             <select
-              className="select select-bordered w-full"
+              className="select select-bordered w-full dark:text-white dark:bg-slate-700"
               defaultValue={loaderData && loaderData?.type}
               required
               name="type"
@@ -163,7 +163,7 @@ const UpdateProduct = () => {
                 name="price"
                 defaultValue={loaderData && loaderData?.price}
                 placeholder="$ Product Price"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -174,7 +174,7 @@ const UpdateProduct = () => {
                 name="rating"
                 defaultValue={loaderData && loaderData?.rating}
                 placeholder="Product Rating: Enter between 1 - 5"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -183,7 +183,7 @@ const UpdateProduct = () => {
             name="description"
             placeholder="Product Short Description"
             defaultValue={loaderData && loaderData?.description}
-            className="textarea textarea-bordered textarea-lg w-full"
+            className="textarea textarea-bordered textarea-lg w-full dark:text-white dark:bg-slate-700"
           ></textarea>
           <div className="flex sm:flex-row flex-col justify-center items-center space-y-4 space-x-0 sm:space-y-0 sm:space-x-4 ">
             <button className="btn btn-primary" type="submit">

@@ -60,57 +60,57 @@ const Registration = () => {
               et a id nisi.
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl dark:text-white dark:bg-slate-600 bg-base-100">
             <form className="card-body text-black" onSubmit={handleRegistration}>
-              <div className="form-control">
+              <div className="form-control ">
                 <label className="label" htmlFor="name">
-                  <span className="label-text">User Name</span>
+                  <span className="label-text dark:text-white">User Name</span>
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   placeholder="User Name"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label" htmlFor="image">
-                  <span className="label-text">Image</span>
+                  <span className="label-text dark:text-white">Image</span>
                 </label>
                 <input
                   type="text"
                   id="image"
                   name="image"
                   placeholder="Image"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label" htmlFor="email">
-                  <span className="label-text">Email</span>
+                  <span className="label-text dark:text-white">Email</span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label" htmlFor="password">
-                  <span className="label-text">Password</span>
+                  <span className="label-text dark:text-white">Password</span>
                 </label>
                 <input
                   type="password"
                   id="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
               </div>
@@ -119,7 +119,7 @@ const Registration = () => {
                   registrar
                 </button>
               </div>
-              <p className="text-sm capitalize">
+              <p className="text-sm capitalize dark:text-white">
                 if you have a account{" "}
                 <Link
                   to="/login"

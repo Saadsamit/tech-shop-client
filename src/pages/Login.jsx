@@ -53,35 +53,35 @@ const Login = () => {
               et a id nisi.
             </p>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 dark:text-white dark:bg-slate-600">
             <form className="card-body text-black" onSubmit={handleSubmit}>
               <div className="form-control">
                 <label className="label" htmlFor="email">
-                  <span className="label-text">Email</span>
+                  <span className="label-text dark:text-white">Email</span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label" htmlFor="password">
-                  <span className="label-text">Password</span>
+                  <span className="label-text dark:text-white">Password</span>
                 </label>
                 <input
                   type="password"
                   id="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered dark:text-white dark:bg-slate-700"
                   required
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <a href="#" className="label-text-alt link link-hover dark:text-white">
                     Forgot password?
                   </a>
                 </label>
@@ -91,7 +91,7 @@ const Login = () => {
                   Login
                 </button>
               </div>
-              <p className="text-sm capitalize">
+              <p className="text-sm capitalize dark:text-white">
                 if you don&apos;t have account{" "}
                 <Link
                   to="/registration"
@@ -110,7 +110,7 @@ const Login = () => {
                 type="button"
                 className="py-2 mt-2 border-2 border-borderColor rounded-xl w-full"
               >
-                <div className="flex justify-center items-center text-lg hover:underline">
+                <div className="flex justify-center items-center text-lg hover:underline dark:text-white">
                   <FcGoogle className="text-2xl mr-2" />
                   Sign up with google
                 </div>

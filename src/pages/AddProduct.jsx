@@ -59,7 +59,7 @@ const AddProduct = () => {
                 id="image"
                 name="image"
                 placeholder="Product Image"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -69,14 +69,14 @@ const AddProduct = () => {
                 id="name"
                 name="name"
                 placeholder="Product Name"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
             <select
-              className="select select-bordered w-full"
+              className="select select-bordered w-full dark:text-white dark:bg-slate-700"
               required
               name="brand"
             >
@@ -86,7 +86,7 @@ const AddProduct = () => {
               {data}
             </select>
             <select
-              className="select select-bordered w-full"
+              className="select select-bordered w-full dark:text-white dark:bg-slate-700"
               required
               name="type"
             >
@@ -111,7 +111,7 @@ const AddProduct = () => {
                 id="price"
                 name="price"
                 placeholder="$ Product Price"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -121,7 +121,7 @@ const AddProduct = () => {
                 id="rating"
                 name="rating"
                 placeholder="Product Rating: Enter between 1 - 5"
-                className="input input-bordered"
+                className="input input-bordered dark:text-white dark:bg-slate-700"
                 required
               />
             </div>
@@ -129,7 +129,7 @@ const AddProduct = () => {
           <textarea
             name="description"
             placeholder="Product Short Description"
-            className="textarea textarea-bordered textarea-lg w-full"
+            className="textarea textarea-bordered textarea-lg w-full dark:text-white dark:bg-slate-700"
           ></textarea>
           <div className="text-center">
             <button className="btn btn-primary" type="submit">

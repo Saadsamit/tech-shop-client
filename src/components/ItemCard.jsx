@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ItemCard = ({ data }) => {
   const { _id, image, name, brand, type, price, rating, description } = data;
   return (
-    <div className="card bg-base-100 border shadow-xl p-4">
+    <div className="card bg-base-100 dark:text-white dark:bg-slate-700 dark:border-none border shadow-xl p-4">
       <figure>
         <img src={image} alt={name} className="w-48" />
       </figure>
@@ -15,8 +15,8 @@ const ItemCard = ({ data }) => {
           <div className="badge badge-outline">{brand}</div>
         </div>
         <h2 className="card-title">{name}</h2>
-        <p className="text-zinc-500 font-semibold text-xl">$ <span className="font-normal">{price}</span></p>
-        <p className="text-zinc-500">
+        <p className="text-zinc-500 dark:text-slate-400 font-semibold text-xl">$ <span className="font-normal">{price}</span></p>
+        <p className="text-zinc-500 dark:text-slate-400">
           {description.length > 70
             ? `${description.slice(0, 70)}...`
             : description}

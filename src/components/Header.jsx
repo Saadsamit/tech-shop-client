@@ -77,7 +77,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[5] p-2 dark:text-white dark:bg-slate-700 shadow bg-base-100 rounded-box w-52"
           >
             <button className="lg:hidden inline-block text-end">
               {BtnToggle}
@@ -111,7 +111,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[5] p-2 shadow bg-base-100 dark:bg-slate-700 rounded-box w-52"
             >
               <li className="dark:hover:bg-slate-700 dark:rounded-lg">
                 <a className="justify-between">{user?.displayName}</a>

@@ -1,6 +1,53 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MyContext } from "../AuthContext";
+import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 const Registration = () => {
+  const { registration,Logout } = useContext(MyContext);
+  const navigate = useNavigate();
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const image = e.target.image.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error("Password must be at least 1 capital letter");
+      return;
+    } else if (!/[!\@\#\$\%\^\&\*\)\(\+\=\.\_\-]/.test(password)) {
+      toast.error("Password must be at least 1 special character");
+      return;
+    } else {
+      registration(email, password)
+        .then(() => {
+          updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: image,
+          });
+        })
+        .then(() => {
+          toast.success("Registrar Successfull");
+        })
+        .then(()=>{
+          Logout()
+          .then(()=>{
+            navigate('/login')
+          })
+        })
+        .catch((error) => {
+          const errorMessage = error?.message
+            ?.replace("Firebase: Error (", "")
+            ?.replace(")", "");
+          toast.error(errorMessage);
+        });
+    }
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -14,7 +61,7 @@ const Registration = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleRegistration}>
               <div className="form-control">
                 <label className="label" htmlFor="name">
                   <span className="label-text">User Name</span>

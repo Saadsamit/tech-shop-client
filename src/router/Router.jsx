@@ -9,6 +9,7 @@ import ErrorPage from "../pages/ErrorPage";
 import BrandDetail from "./../pages/BrandDetail";
 import CardDetail from "../pages/CardDetail";
 import UpdateProduct from "../pages/UpdateProduct";
+import PriveteRouter from "./PriveteRouter";
 const url = "http://localhost:8000/";
 
 const Router = createBrowserRouter([
@@ -24,27 +25,47 @@ const Router = createBrowserRouter([
       },
       {
         path: "/AddProduct",
-        element: <AddProduct />,
+        element: (
+          <PriveteRouter>
+            <AddProduct />
+          </PriveteRouter>
+        ),
         loader: () => fetch(`${url}brands`),
       },
       {
         path: "/MyCart",
-        element: <MyCart />,
+        element: (
+          <PriveteRouter>
+            <MyCart />
+          </PriveteRouter>
+        ),
         loader: () => fetch(`${url}cardData`),
       },
       {
         path: "/brandDetail/:id",
-        element: <BrandDetail />,
+        element: (
+          <PriveteRouter>
+            <BrandDetail />
+          </PriveteRouter>
+        ),
         loader: ({ params }) => fetch(`${url}brands/${params.id}`),
       },
       {
         path: "/cardDetail/:id",
-        element: <CardDetail />,
+        element: (
+          <PriveteRouter>
+            <CardDetail />
+          </PriveteRouter>
+        ),
         loader: ({ params }) => fetch(`${url}Item/${params.id}`),
       },
       {
         path: "/UpdateProduct/:id",
-        element: <UpdateProduct />,
+        element: (
+          <PriveteRouter>
+            <UpdateProduct />
+          </PriveteRouter>
+        ),
         loader: ({ params }) => fetch(`${url}Item/${params.id}`),
       },
       {

@@ -3,6 +3,7 @@ import Banner2 from "../components/Banner2";
 import { url } from "../router/Router";
 import swal from "sweetalert";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const UpdateProduct = () => {
     const navigate = useNavigate()
@@ -42,10 +43,10 @@ const UpdateProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          swal("Your Product is Successfully Update", "", "success");
+          toast.success("Your Product is Successfully Update");
           setLoaderData(formData);
         } else {
-          swal("Your Product is Failed to Update", "", "error");
+          toast.error("Your Product is Failed to Update");
         }
       });
   };
@@ -65,12 +66,10 @@ const UpdateProduct = () => {
                 .then((res) => res.json())
                 .then((data) => {
                   if (data.deletedCount > 0) {
-                      swal("Your Product is Successfully to Delete", {
-                          icon: "success",
-                        });
+                    toast.success("Your Product is Successfully to Delete");
                         navigate('/')
                     } else {
-                      swal("Your Product is Failed to Delete", "", "error");
+                      toast.error("Your Product is Failed to Delete");
                     }
               });
         } else {

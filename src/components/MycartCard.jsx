@@ -4,7 +4,7 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 const MycartCard = ({ data, handleDelete }) => {
   const { _id, image, name, brand, type, price, rating, description } = data;
   return (
-    <div className="card card-side bg-base-100 shadow-xl border">
+    <div className="card sm:card-side bg-base-100 shadow-xl border">
       <figure>
         <img src={image} alt={name} />
       </figure>

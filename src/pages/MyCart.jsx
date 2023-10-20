@@ -4,6 +4,7 @@ import MycartCard from "../components/MycartCard";
 import swal from "sweetalert";
 import { url } from "../router/Router";
 import { useState } from "react";
+import toast from "react-hot-toast";
 const MyCart = () => {
   const loadData = useLoaderData();
   const [loaderData, setLoaderData] = useState(loadData);
@@ -22,14 +23,12 @@ const MyCart = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              swal("Your Product is Successfully to Delete", {
-                icon: "success",
-              });
+              toast.success("Your Product is Successfully to Delete");
               const filder = loadData.filter((data) => data._id !== id);
               console.log(filder);
               setLoaderData(filder);
             } else {
-              swal("Your Product is Failed to Delete", "", "error");
+              toast.error("Your Product is Failed to Delete");
             }
           });
       }
@@ -40,7 +39,7 @@ const MyCart = () => {
       <Banner2 text={"My Cart"} />
       <div className="container mx-auto pt-10">
         {loaderData.length > 0 ? (
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
             {loaderData.map((data) => (
               <MycartCard
                 key={data._id}

@@ -3,7 +3,7 @@ import Banner2 from "../components/Banner2";
 import Rating from "react-rating";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { url } from "../router/Router";
-import swal from "sweetalert";
+import toast from "react-hot-toast";
 
 const CardDetail = () => {
   const loaderData = useLoaderData();
@@ -21,9 +21,9 @@ const CardDetail = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          swal("Added successfully on your Card", "", "success");
+          toast.success("Added successfully on your Card");
         } else {
-          swal(" Failed to Add Card", "", "error");
+          toast.error("Failed to Add Card");
         }
       });
   };

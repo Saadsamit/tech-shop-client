@@ -1,7 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { MyContext } from "../AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { googleLogin, login } = useContext(MyContext);
+  const location = useLocation()
+  const navigate = useNavigate();
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    login(email, password)
+    .then(() => {
+      toast.success("Login Successfull");
+      navigate(location?.state ? location.state : "/");
+    })
+    .catch((error) => {
+      const errorMessage = error?.message
+        ?.replace("Firebase: Error (", "")
+        ?.replace(")", "");
+        if(errorMessage.includes("auth/invalid-login-credentials.")){
+          toast.error(" Email/Password doesn't match");
+        }else{
+          toast.error(errorMessage);
+        }
+    });
+  }
+  const handleGoogle = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("Login Successfully");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        const errorMessage = error?.message
+          ?.replace("Firebase: Error (", "")
+          ?.replace(")", "");
+        toast.error(errorMessage);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -15,8 +54,8 @@ const Login = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
-            <div className="form-control">
+            <form className="card-body" onSubmit={handleSubmit}>
+              <div className="form-control">
                 <label className="label" htmlFor="email">
                   <span className="label-text">Email</span>
                 </label>
@@ -30,7 +69,7 @@ const Login = () => {
                 />
               </div>
               <div className="form-control">
-              <label className="label" htmlFor="password">
+                <label className="label" htmlFor="password">
                   <span className="label-text">Password</span>
                 </label>
                 <input
@@ -48,23 +87,26 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
               </div>
               <p className="text-sm capitalize">
-              if you don&apos;t have account{" "}
-              <Link
-                to="/registration"
-                className="text-[#687EFF] link-hover text-base"
-              >
-                registrar
-              </Link>
-            </p>
+                if you don&apos;t have account{" "}
+                <Link
+                  to="/registration"
+                  className="text-[#687EFF] link-hover text-base"
+                >
+                  registrar
+                </Link>
+              </p>
               <div className="flex justify-around items-center px-4">
                 <div className="bg-[#687EFF] h-[2px] w-2/5"></div>
                 <p className="text-center">or</p>
                 <div className="bg-[#687EFF] h-0.5 w-2/5"></div>
               </div>
               <button
+                onClick={handleGoogle}
                 type="button"
                 className="py-2 mt-2 border-2 border-borderColor rounded-xl w-full"
               >

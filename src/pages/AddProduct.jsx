@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner2 from "../components/Banner2";
-import swal from "sweetalert";
 import { url } from "../router/Router";
+import toast from "react-hot-toast";
 const AddProduct = () => {
   const loaderData = useLoaderData();
   const data =
@@ -26,7 +26,7 @@ const AddProduct = () => {
     const rating = form.rating.value;
     const description = form.description.value;
     if (rating <= 0 || rating > 5) {
-      swal("Enter between 1 - 5", "", "warning");
+      toast.error("Enter between 1 - 5", "", "warning");
       return;
     }
     const formData = { image, name, brand, type, price, rating, description };
@@ -40,9 +40,9 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          swal("Your Product is Successfully Added", "", "success");
+          toast.success("Your Product is Successfully Added");
         } else {
-          swal("Your Product is Failed to Add", "", "error");
+          toast.error("Your Product is Failed to Add");
         }
       });
     form.reset();

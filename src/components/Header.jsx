@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../AuthContext";
 import { CgProfile } from "react-icons/cg";
@@ -7,26 +7,31 @@ import { useState } from "react";
 const Header = () => {
   // localStorage.setItem('themes', 'lit')
   const { user, Logout } = useContext(MyContext);
-  const [mode,setmode] =useState(localStorage.getItem("themes"))
-  const darkMode = (e)=>{
-    const isChecked = e.target.checked
-    if(isChecked){
-      localStorage.setItem('themes', 'dark')
-    }else{
-      localStorage.setItem('themes', 'light')
+  const [mode, setmode] = useState(localStorage.getItem("themes"));
+  const darkMode = (e) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      localStorage.setItem("themes", "dark");
+    } else {
+      localStorage.setItem("themes", "light");
     }
-    if(document.querySelector("html").classList[0] == 'light'){
-      document.querySelector("html").classList.remove('light')
-    }else{
-      document.querySelector("html").classList.remove('dark')
+    if (document.querySelector("html").classList.value.includes("light")) {
+      document.querySelector("html").classList.remove("light");
+    } else {
+      document.querySelector("html").classList.remove("dark");
     }
     console.log(isChecked);
     const getMode = localStorage.getItem("themes");
-    setmode(getMode)
-    
-  }
-  document.querySelector("html").classList.add(mode)
-  const BtnToggle = mode === 'light' ? <input type="checkbox" className="toggle" onClick={darkMode} /> : <input type="checkbox" className="toggle" onClick={darkMode} checked />
+    setmode(getMode);
+  };
+  document.querySelector("html").classList.add(mode);
+  const BtnToggle =
+    mode === "dark" ? (
+      <input type="checkbox" className="toggle" onClick={darkMode} checked />
+    ) : (
+      <input type="checkbox" className="toggle" onClick={darkMode} />
+    );
+    console.log();
   const links = (
     <>
       <li>
@@ -75,7 +80,9 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <button className="lg:hidden inline-block text-end">{BtnToggle}</button>
+            <button className="lg:hidden inline-block text-end">
+              {BtnToggle}
+            </button>
             {links}
           </ul>
         </div>
@@ -110,7 +117,10 @@ const Header = () => {
               <li className="dark:hover:bg-slate-700 dark:rounded-lg">
                 <a className="justify-between">{user?.displayName}</a>
               </li>
-              <li className="dark:hover:bg-slate-700 dark:rounded-lg" onClick={handleLogout}>
+              <li
+                className="dark:hover:bg-slate-700 dark:rounded-lg"
+                onClick={handleLogout}
+              >
                 <a>Logout</a>
               </li>
             </ul>
@@ -123,7 +133,9 @@ const Header = () => {
             Login
           </Link>
         )}
-        <button className="lg:inline-block hidden lg:pl-4 pl-0">{BtnToggle}</button>
+        <button className="lg:inline-block hidden lg:pl-4 pl-0">
+          {BtnToggle}
+        </button>
       </div>
     </div>
   );

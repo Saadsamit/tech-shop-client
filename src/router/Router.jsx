@@ -10,7 +10,7 @@ import BrandDetail from "./../pages/BrandDetail";
 import CardDetail from "../pages/CardDetail";
 import UpdateProduct from "../pages/UpdateProduct";
 import PriveteRouter from "./PriveteRouter";
-const url = "http://localhost:8000/";
+const url = "https://tech-shop-seven.vercel.app/";
 
 const Router = createBrowserRouter([
   {

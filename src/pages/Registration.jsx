@@ -50,7 +50,7 @@ const Registration = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 dark:bg-slate-800 dark:text-white">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">registrar now!</h1>
@@ -61,7 +61,7 @@ const Registration = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body" onSubmit={handleRegistration}>
+            <form className="card-body text-black" onSubmit={handleRegistration}>
               <div className="form-control">
                 <label className="label" htmlFor="name">
                   <span className="label-text">User Name</span>

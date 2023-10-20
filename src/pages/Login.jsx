@@ -43,7 +43,7 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 dark:bg-slate-800 dark:text-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
@@ -54,7 +54,7 @@ const Login = () => {
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body" onSubmit={handleSubmit}>
+            <form className="card-body text-black" onSubmit={handleSubmit}>
               <div className="form-control">
                 <label className="label" htmlFor="email">
                   <span className="label-text">Email</span>

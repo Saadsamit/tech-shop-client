@@ -4,13 +4,13 @@ import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-
+  
   return (
-    <div className="font-Roboto">
+    <div className="font-Roboto dark:bg-slate-800">
       <Header />
       <Outlet />
       <Footer />
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }

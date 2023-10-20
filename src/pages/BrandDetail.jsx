@@ -16,7 +16,6 @@ const BrandDetail = () => {
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [brand_name]);
-  console.log(brand_ads, product);
   return (
     <div>
       <div className="container mx-auto pt-10">

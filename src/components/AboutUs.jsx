@@ -6,7 +6,7 @@ const AboutUs = () => {
         <div className="lg:w-1/2">
           <img src={aboutImg} alt="" className="w-full rounded-lg" />
         </div>
-        <div className="lg:w-1/2 lg:pr-10 space-y-4 flex flex-col justify-center">
+        <div className="lg:w-1/2 lg:pr-10 space-y-4 flex flex-col justify-center dark:text-white">
           <h3 className="text-4xl font-semibold">About Tech Shop</h3>
           <p className="text-lg">
             Welcome to Tech Shop, where technology and innovation converge to

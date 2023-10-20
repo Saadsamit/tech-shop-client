@@ -1,24 +1,46 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../AuthContext";
 import { CgProfile } from "react-icons/cg";
 import toast from "react-hot-toast";
+import { useState } from "react";
 const Header = () => {
+  // localStorage.setItem('themes', 'lit')
   const { user, Logout } = useContext(MyContext);
+  const [mode,setmode] =useState(localStorage.getItem("themes"))
+  const darkMode = (e)=>{
+    const isChecked = e.target.checked
+    if(isChecked){
+      localStorage.setItem('themes', 'dark')
+    }else{
+      localStorage.setItem('themes', 'light')
+    }
+    if(document.querySelector("html").classList[0] == 'light'){
+      document.querySelector("html").classList.remove('light')
+    }else{
+      document.querySelector("html").classList.remove('dark')
+    }
+    console.log(isChecked);
+    const getMode = localStorage.getItem("themes");
+    setmode(getMode)
+    
+  }
+  document.querySelector("html").classList.add(mode)
+  const BtnToggle = mode === 'light' ? <input type="checkbox" className="toggle" onClick={darkMode} /> : <input type="checkbox" className="toggle" onClick={darkMode} checked />
   const links = (
     <>
       <li>
-        <NavLink to="/" className="font-medium">
+        <NavLink to="/" className="font-medium hover:!text-[#687EFF]">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/AddProduct" className="font-medium">
+        <NavLink to="/AddProduct" className="font-medium hover:!text-[#687EFF]">
           Add Product
         </NavLink>
       </li>
       <li>
-        <NavLink to="/MyCart" className="font-medium">
+        <NavLink to="/MyCart" className="font-medium hover:!text-[#687EFF]">
           My Cart
         </NavLink>
       </li>
@@ -30,7 +52,7 @@ const Header = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar bg-base-100 container mx-auto">
+    <div className="navbar dark:text-white container mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,6 +75,7 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <button className="lg:hidden inline-block text-end">{BtnToggle}</button>
             {links}
           </ul>
         </div>
@@ -82,12 +105,12 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 rounded-box w-52"
             >
-              <li>
+              <li className="dark:hover:bg-slate-700 dark:rounded-lg">
                 <a className="justify-between">{user?.displayName}</a>
               </li>
-              <li onClick={handleLogout}>
+              <li className="dark:hover:bg-slate-700 dark:rounded-lg" onClick={handleLogout}>
                 <a>Logout</a>
               </li>
             </ul>
@@ -95,11 +118,12 @@ const Header = () => {
         ) : (
           <Link
             to="/login"
-            className="btn bg-[#687EFF] text-white hover:bg-[#687EFF] hover:text-black"
+            className="btn hover:text-white bg-[#687EFF] border-none text-white hover:bg-[#687EFF]"
           >
             Login
           </Link>
         )}
+        <button className="lg:inline-block hidden lg:pl-4 pl-0">{BtnToggle}</button>
       </div>
     </div>
   );

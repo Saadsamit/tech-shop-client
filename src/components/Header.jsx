@@ -20,7 +20,6 @@ const Header = () => {
     } else {
       document.querySelector("html").classList.remove("dark");
     }
-    console.log(isChecked);
     const getMode = localStorage.getItem("themes");
     setmode(getMode);
   };

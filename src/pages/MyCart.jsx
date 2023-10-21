@@ -58,7 +58,7 @@ const MyCart = () => {
           </div>
         ) : (
           <div className="text-center">
-            <h3 className="font-bold text-2xl">No Product Available on your Cart</h3>
+            <h3 className="font-bold text-2xl dark:text-white">No Product Available on your Cart</h3>
             <Link to="/" className="btn btn-primary my-4">
               Go To Home
             </Link>

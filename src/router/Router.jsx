@@ -10,8 +10,9 @@ import BrandDetail from "./../pages/BrandDetail";
 import CardDetail from "../pages/CardDetail";
 import UpdateProduct from "../pages/UpdateProduct";
 import PriveteRouter from "./PriveteRouter";
-const url = "https://tech-shop-seven.vercel.app/";
 
+const url = "https://tech-shop-seven.vercel.app/";
+// http://localhost:8000/
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +40,6 @@ const Router = createBrowserRouter([
             <MyCart />
           </PriveteRouter>
         ),
-        loader: () => fetch(`${url}cardData`),
       },
       {
         path: "/brandDetail/:id",

@@ -4,13 +4,16 @@ import Rating from "react-rating";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { url } from "../router/Router";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { MyContext } from "../AuthContext";
 
 const CardDetail = () => {
+  const {user} = useContext(MyContext)
   const loaderData = useLoaderData();
   const { image, name, brand, type, price, rating, description } =
     loaderData;
   const handleClick = () => {
-    const fromData = { image, name, brand, type, price, rating, description }
+    const fromData = {email: user?.email, image, name, brand, type, price, rating, description }
     fetch(`${url}cardData`, {
       method: "POST",
       headers: {

@@ -1,13 +1,21 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Banner2 from "../components/Banner2";
 import MycartCard from "../components/MycartCard";
 import swal from "sweetalert";
 import { url } from "../router/Router";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { MyContext } from "../AuthContext";
 const MyCart = () => {
-  const loadData = useLoaderData();
-  const [loaderData, setLoaderData] = useState(loadData);
+  // const loadData = useLoaderData();
+  const {user} = useContext(MyContext)
+  const [loaderData, setLoaderData] = useState([]);
+  useEffect(()=>{
+    fetch(`${url}cardData/${user?.email}`)
+    .then(res=>res.json())
+    .then(data=> setLoaderData(data))
+  },[user])
+ 
   const handleDelete = (id) => {
     swal({
       title: "Are you sure?",
@@ -24,7 +32,7 @@ const MyCart = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               toast.success("Your Product is Successfully to Delete");
-              const filder = loadData.filter((data) => data._id !== id);
+              const filder = loaderData.filter((data) => data._id !== id);
               console.log(filder);
               setLoaderData(filder);
             } else {

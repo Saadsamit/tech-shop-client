@@ -1,5 +1,5 @@
-<h3>Website Name: Tech-Shop</h3>
-<p>Website Link: https://tech-shop-9a285.web.app/</p>
+# Tech-Shop
+https://tech-shop-9a285.web.app
 
 <h4>Project features</h4>
 <ul>
@@ -13,3 +13,15 @@
 <li>when you create account your password must have 6 characters, password must have 1 capital letter, password must have 1 special character if you don't fill the requirement your browser will give you a error</li>
 <li>on login if your email or password are not correct browser will give you a error</li>
 </ul>
+
+# technology I use
+- Html 
+- Css 
+- Tailwind Css
+- Javascript
+- React
+- Express
+- Mongodb
+- Firebase
+- jwt 
+- imgbb
